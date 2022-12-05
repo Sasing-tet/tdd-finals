@@ -4,11 +4,25 @@ import "./SackO.css";
 import ItemDetails from "./ItemDetails";
 import items from "./ItemsData";
 import { GiSwapBag } from "react-icons/gi"; 
+import ShoppingCart from "./shoppingSack";
 
 const ProductPage = () => {
   const [showItemDetails, setShowItemDetails] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [currID, setCurrID] = useState(1);
+  const [sackVisibilty, setSackVisible] =
+  useState(false);
+  const [itemsInCart, setItems] =useState([]);
+  const addItemsToCart = () =>{
+    const newItems ={
+      ...items,
+      count: 1,
+    }
+    setItems([
+      ...itemsInCart,
+      newItems,
+    ])
+  };
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -19,8 +33,19 @@ const ProductPage = () => {
   };
   // const [buy, setBuy] = useEffect ({});
 
+ 
+
   return (
     <>
+    <div>
+    <ShoppingCart
+				visibilty={sackVisibilty}
+				items={itemsInCart}
+        onClose={()=>
+          setSackVisible(false)
+        }
+        />
+    </div>
       <div className="upper-display">
         <b>Free Shipping within the Philippines on all orders over P500.00</b>
       </div>
@@ -59,7 +84,20 @@ const ProductPage = () => {
         <input className="search-field" placeholder="Search"></input>
 
         <td>
-          <button className="sack-button"><GiSwapBag size={28}/></button>
+          <button className="sack-button" 
+          onClick={() => 
+            setSackVisible(true)
+          }>
+            <GiSwapBag size={28}/>
+            {itemsInCart.length >
+						0 && (
+						<span className="product-count">
+							{
+								itemsInCart.length
+							}
+						</span>
+					)}</button>
+
         </td>
         <td>
           <h4 className="cart"> ₱</h4>
@@ -94,6 +132,7 @@ const ProductPage = () => {
                         onClick={() => {
                           setCurrID(menuItem.id - 1);
                           setShowItemDetails(true);
+                          addItemsToCart(items)
                         }}
                       >
                         Add to Sack
