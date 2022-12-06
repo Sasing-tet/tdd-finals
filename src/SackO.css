@@ -85,9 +85,7 @@ td {
   width: fit-content;
   padding: 0 30px 0 5px;
   background-color: white;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 20px;
+  margin: 20px 10px 0 10px;
   display: flex;
   /* display: grid;
   grid-template-columns: 300px 300px auto 300px; */
@@ -103,32 +101,29 @@ td {
 }
 
 .product-one {
-  margin-left: 30px;
-  margin-top: 50px;
   size-adjust: 40px;
   height: 200px;
   width: 200px;
 }
 
 .on-hover-button {
-  margin-top: -60px;
   margin-left: 20px;
-  position: fixed;
   z-index: 1;
 }
 
 .add-to-sack {
+  position: absolute;
+  margin-top: -60px;
   background-color: white;
   color: black;
   border: 2px solid black;
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
-  position: fixed;
 }
 
 img {
-  height: 370px;
+  height: 100%;
   width: 280px;
   display: block;
   margin: 0;
@@ -159,6 +154,24 @@ h4.prodTitle {
 .sack-button {
   background-color: transparent;
   border: none;
+}
+
+.items-map {
+  display: flex;
+  justify-content: center;
+}
+
+.product-count {
+  line-height: 1.5;
+  background-color: red;
+  color: white;
+  font-size: 11px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: -10px;
+  margin-top: -5px;
 }
 /*----------ITEM DETAILS CSS ------------- */
 

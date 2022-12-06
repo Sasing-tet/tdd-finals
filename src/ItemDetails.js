@@ -6,8 +6,9 @@ const ItemDetails = ({
   items,
   show,
   setShowItemDetails,
-  isHovering,
   currID,
+  addItemsToCart,
+  setItems
 }) => {
   const [imageThumb, setImageThumb] = useState(true);
   if (!show) {
@@ -79,7 +80,8 @@ const ItemDetails = ({
               </tr>
               <tr>
                 <div className="item-detail-add-button">
-                  <button className="item-add-button">ADD TO SACK</button>
+                  <button className="item-add-button"
+                  onClick={() => addItemsToCart(items)}>ADD TO SACK</button>
                 </div>
               </tr>
             </div>

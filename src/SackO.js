@@ -1,51 +1,40 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import React from "react";
 import "./SackO.css";
 import ItemDetails from "./ItemDetails";
 import items from "./ItemsData";
-import { GiSwapBag } from "react-icons/gi"; 
+import { GiSwapBag } from "react-icons/gi";
 import ShoppingCart from "./shoppingSack";
+import Item from "./Item";
 
 const ProductPage = () => {
   const [showItemDetails, setShowItemDetails] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
   const [currID, setCurrID] = useState(1);
-  const [sackVisibilty, setSackVisible] =
-  useState(false);
-  const [itemsInCart, setItems] =useState([]);
-  const addItemsToCart = () =>{
-    const newItems ={
-      ...items,
+  const [sackVisibilty, setSackVisible] = useState(false);
+  const [itemsInCart, setItems] = useState([]);
+  const addItemsToCart = () => {
+    const newItems = {
+      ...items[currID],
       count: 1,
-    }
-    setItems([
-      ...itemsInCart,
-      newItems,
-    ])
+    };
+    setItems([...itemsInCart, newItems]);
   };
 
-  const handleMouseOver = () => {
-    setIsHovering(true);
+  const handleItemClick = (id) => {
+    setCurrID(id - 1);
+    setShowItemDetails(true);
   };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
-  // const [buy, setBuy] = useEffect ({});
-
- 
 
   return (
     <>
-    <div>
-    <ShoppingCart
-				visibilty={sackVisibilty}
-				items={itemsInCart}
-        onClose={()=>
-          setSackVisible(false)
-        }
+      <div>
+        <ShoppingCart
+          visibilty={sackVisibilty}
+          items={itemsInCart}
+          onClose={() => setSackVisible(false)}
+          currID={currID}
         />
-    </div>
+      </div>
       <div className="upper-display">
         <b>Free Shipping within the Philippines on all orders over P500.00</b>
       </div>
@@ -84,20 +73,12 @@ const ProductPage = () => {
         <input className="search-field" placeholder="Search"></input>
 
         <td>
-          <button className="sack-button" 
-          onClick={() => 
-            setSackVisible(true)
-          }>
-            <GiSwapBag size={28}/>
-            {itemsInCart.length >
-						0 && (
-						<span className="product-count">
-							{
-								itemsInCart.length
-							}
-						</span>
-					)}</button>
-
+          <button className="sack-button" onClick={() => setSackVisible(true)}>
+            <GiSwapBag size={28} />
+            {itemsInCart.length > 0 && (
+              <span className="product-count">{itemsInCart.length}</span>
+            )}
+          </button>
         </td>
         <td>
           <h4 className="cart"> ₱</h4>
@@ -109,45 +90,21 @@ const ProductPage = () => {
         items={items}
         show={showItemDetails}
         setShowItemDetails={setShowItemDetails}
-        isHovering={isHovering}
         currID={currID}
+        addItemsToCart={addItemsToCart}
+        setItems={setItems}
       />
-
-      <div
-        className="products"
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      >
+      <div className="items-map">
         {items.map((menuItem) => {
           const { id, productName, img, price } = menuItem;
           return (
-            <main className="image-container">
-              <article key={id} className="product-box-one">
-                <div>
-                  <img src={img} className="img" />
-                  <div className="on-hover-button">
-                    {isHovering && (
-                      <button
-                        className="add-to-sack"
-                        onClick={() => {
-                          setCurrID(menuItem.id - 1);
-                          setShowItemDetails(true);
-                          addItemsToCart(items)
-                        }}
-                      >
-                        Add to Sack
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </article>
-              <div className="item-info">
-                <h4 className="prodTitle">{productName}</h4>
-                <div>
-                  <h4 className="price">${price}</h4>
-                </div>
-              </div>
-            </main>
+            <Item
+              handleItemClick={handleItemClick}
+              id={id}
+              productName={productName}
+              img={img}
+              price={price}
+            />
           );
         })}
       </div>

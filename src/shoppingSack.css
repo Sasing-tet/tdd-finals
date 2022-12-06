@@ -57,6 +57,7 @@
 	background-color: #fff;
 	padding: 10px 20px;
 	border: 3px solid #eee;
+	max-width: 94%;
 }
 
 .product-info {
@@ -81,7 +82,7 @@
 }
 
 .checkout-btn {
-	background-color: var(--main-color);
+	background-color: black;
 	padding: 10px 20px;
 	font-size: 1rem;
 	color: #fff;
