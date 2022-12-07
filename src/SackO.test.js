@@ -10,8 +10,6 @@ import {
 import ProductPage from "./SackO";
 import "./ItemsData";
 import Item from "./Item";
-import ShoppingCart from "./shoppingSack";
-import ItemDetails from "./ItemDetails";
 
 describe("This is a Shopping order Project", () => {
   afterEach(cleanup);
@@ -51,8 +49,9 @@ describe("Mock add to sack button", () => {
   });
 
   it("has item detail modal", async() => {
-    render(<ItemDetails />);
-    waitFor(() => expect(getByTestId("item-detail")).toBeInTheDocument());
+    render(<Item />);
+    const btn = screen.queryByTestId("add-to-sack")
+    waitFor (() => fireEvent.click(btn).toBeInTheDocument());
   });
 });
 

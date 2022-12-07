@@ -39,6 +39,11 @@ const ProductPage = () => {
     });
   };
 
+  setInterval(
+    function () {
+      var randomColor = Math.floor(Math.random()*16777215).toString(16);
+      document.body.style.backgroundColor = "#"+randomColor;
+    },1000);
   return (
     <>
       <div>
@@ -55,64 +60,43 @@ const ProductPage = () => {
       <div className="upper-display">
         <b>Free Shipping within the Philippines on all orders over P500.00</b>
       </div>
+      <div className="body">
       <div className="details">
-        <td>
-          <h4 className="help">Help</h4>
-        </td>
-        <td>
-          <h4 className="blog">Blog</h4>
-        </td>
-
-        <td>
-          <h4 className="ghost-com">Sack-o.com</h4>
-        </td>
+        <h4 className="help">Help</h4>
+        <h4 className="blog">Blog</h4>
+        <h4 className="ghost-com">Sack-o.com</h4>
       </div>
       <div className="sticky-header">
         <hr className="solid" />
         <div data-testid="header" className="header">
           <div>
-            <td>
-              <h2 data-testid="title" className="ghost">
-                {" "}
-                SACK-O{" "}
-              </h2>
-            </td>
+            <h2 data-testid="title" className="ghost">
+              SACK-O
+            </h2>
           </div>
           <div className="details-two">
-            <td>
-              <h4 className="r"> MENS </h4>
-            </td>
-            <td>
-              <h4 className="r">WOMENS</h4>
-            </td>
-            <td>
-              <h4 className="r">KIDS</h4>
-            </td>
-            <td>
-              <h4 className="r">SALE</h4>
-            </td>
-
+            <h4 className="r"> MENS </h4>
+            <h4 className="r">WOMENS</h4>
+            <h4 className="r">KIDS</h4>
+            <h4 className="r">SALE</h4>
             <input
               data-testid="srchbar"
               className="search-field"
               placeholder="Search"
             ></input>
 
-            <td>
-              <button
-                data-testid="sack"
-                className="sack-button"
-                onClick={() => setSackVisible(true)}
-              >
-                <GiSwapBag size={28} />
-                {itemsInCart.length > 0 && (
-                  <span className="product-count">{itemsInCart.length}</span>
-                )}
-              </button>
-            </td>
-            <td>
-              <h4 className="cart"> ₱</h4>
-            </td>
+            <button
+              data-testid="sack"
+              className="sack-button"
+              onClick={() => setSackVisible(true)}
+            >
+              <GiSwapBag size={28} />
+              {itemsInCart.length > 0 && (
+                <span className="product-count">{itemsInCart.length}</span>
+              )}
+            </button>
+
+            <h4 className="cart"> ₱</h4>
           </div>
         </div>
 
@@ -143,6 +127,7 @@ const ProductPage = () => {
         })}
       </div>
       <div className="footer">footer</div>
+      </div>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import "./css/SackO.css";
+import "./css/ItemDetails.css";
 import items from "./ItemsData";
 import { useState } from "react";
 
@@ -8,14 +8,14 @@ const ItemDetails = ({
   setShowItemDetails,
   currID,
   addItemsToCart,
-  setItems
+  setItems,
 }) => {
   const [imageThumb, setImageThumb] = useState(true);
   if (!show) {
     return <></>;
   }
 
-  return (  
+  return (
     <div className="overlay">
       <div data-testid="item-detail" className="item-detail">
         <button
@@ -62,9 +62,10 @@ const ItemDetails = ({
                 <td className="item-detail-price">${items[currID].price}</td>
               </tr>
               <tr>
-                <td>{items[currID].desc}</td>
+                <td className="desc">{items[currID].desc}</td>
               </tr>
               <tr>
+                <div className="sizes-title">Available Sizes: </div>
                 <button className="size-buttons">
                   {items[currID].sizeButton.small}
                 </button>
@@ -80,8 +81,13 @@ const ItemDetails = ({
               </tr>
               <tr>
                 <div className="item-detail-add-button">
-                  <button data-testid="item-add-button" className="item-add-button"
-                  onClick={() => addItemsToCart(items)}>ADD TO SACK</button>
+                  <button
+                    data-testid="item-add-button"
+                    className="item-add-button"
+                    onClick={() => addItemsToCart(items)}
+                  >
+                    ADD TO SACK
+                  </button>
                 </div>
               </tr>
             </div>

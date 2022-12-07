@@ -12,7 +12,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `I'm baby woke`,
+      desc: `Feature:Anti-wrinkle, QUICK DRY, Compressed, Breathable, Plus Size, Anti-Shrink
+      Collar:O-Neck
+      Fabric Weight:160 grams
+      Printing Methods:Digital Sublimation Printed`,
     },
     {
       id: 2,
@@ -27,7 +30,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `vaporware iPhone`,
+      desc: `Brand: TEETALK
+      Neckline: Crew Neck
+      Clothing Material: cotton
+      Sleeves Type: Short Sleeve`,
     },
     {
       id: 3,
@@ -42,7 +48,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `ombucha chillwave`,
+      desc: `Brand: INSPI
+      Neckline: Crew Neck
+      Pattern: Plain
+      Clothing Material: cotton`,
     },
     {
       id: 4,
@@ -57,7 +66,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `Shabby chic keffiyeh`,
+      desc: `Brand: No Brand
+      Neckline: Crew Neck
+      Pattern: Graphic Print
+      Clothing Material: cotton`,
     },
     {
       id: 5,
@@ -72,7 +84,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `Shabby chic keffiyeh`,
+      desc: `Top Length: Regular
+      Country of Origin: China
+      Neckline: Round Neck
+      Sleeve Length: Short Sleeves`,
     },
     {
       id: 6,
@@ -87,7 +102,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `Shabby chic keffiyeh`,
+      desc: `Color:	Khaki
+      Style:	Casual
+      Pattern Type:	Letter
+      Neckline:	Round Neck`,
     },
     {
       id: 7,
@@ -102,7 +120,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `Shabby chic keffiyeh`,
+      desc: `Color:	Multicolor
+      Style:	Street
+      Pattern Type:	Plaid
+      Details:	Zipper, Pocket, Drawstring`,
     },
     {
       id: 8,
@@ -117,7 +138,10 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
-      desc: `Shabby chic keffiyeh`,
+      desc: `Color:	Black, White, and Pale Colors
+      Style:	Casual
+      Pattern Type:	Striped, Cartoon
+      Type:	Shirt`,
     },
   ];
   export default items;
