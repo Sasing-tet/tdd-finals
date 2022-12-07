@@ -61,11 +61,11 @@ const items = [
     },
     {
       id: 5,
-      productName: 'Felegant Paris Graphic Short Sleeve Tee',
+      productName: 'SHEIN EZwear I Do Not Seek Graphic Tee',
       category: 'Women',
       price: 20.99,
-      img: './assets/item 4 front.jpg',
-      img2: './assets/item 4 back.jpg',
+      img: './assets/item 5 front.jpg',
+      img2: './assets/item 5 back.jpg',
       sizeButton: {
         small: "S", 
         medium: "M", 
@@ -76,11 +76,11 @@ const items = [
     },
     {
       id: 6,
-      productName: 'Felegant Paris Graphic Short Sleeve Tee',
-      category: 'Women',
+      productName: 'SHEIN Mixed Print Two Tone Asymmetrical Neon Tee',
+      category: 'Kids',
       price: 20.99,
-      img: './assets/item 4 front.jpg',
-      img2: './assets/item 4 back.jpg',
+      img: './assets/item 6 front.jpg',
+      img2: './assets/item 6 back.jpg',
       sizeButton: {
         small: "S", 
         medium: "M", 
@@ -91,11 +91,11 @@ const items = [
     },
     {
       id: 7,
-      productName: 'Felegant Paris Graphic Short Sleeve Tee',
+      productName: 'SHEIN Boys Slogan and Car Print Tee',
       category: 'Kids',
       price: 20.99,
-      img: './assets/item 4 front.jpg',
-      img2: './assets/item 4 back.jpg',
+      img: './assets/item 7 front.jpg',
+      img2: './assets/item 7 back.jpg',
       sizeButton: {
         small: "S", 
         medium: "M", 
@@ -106,11 +106,11 @@ const items = [
     },
     {
       id: 8,
-      productName: 'Felegant Paris Graphic Short Sleeve Tee',
-      category: 'Kids',
+      productName: 'Figure & Butterfly Print Tee',
+      category: 'Women',
       price: 20.99,
-      img: './assets/item 4 front.jpg',
-      img2: './assets/item 4 back.jpg',
+      img: './assets/item 8 front.jpg',
+      img2: './assets/item 8 back.jpg',
       sizeButton: {
         small: "S", 
         medium: "M", 
