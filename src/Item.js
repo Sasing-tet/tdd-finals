@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./css/SackO.css";
 
-const Item = ({ handleItemClick, id, productName, img, price}) => {
+const Item = ({ handleItemClick, id, productName, img, price }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => {
@@ -14,6 +14,7 @@ const Item = ({ handleItemClick, id, productName, img, price}) => {
 
   return (
     <div
+      data-testid="products-on-hover"
       className="products"
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
@@ -25,6 +26,7 @@ const Item = ({ handleItemClick, id, productName, img, price}) => {
             <div className="on-hover-button">
               {isHovering && (
                 <button
+                  data-testid="add-to-sack"
                   className="add-to-sack"
                   onClick={() => {
                     handleItemClick(id);

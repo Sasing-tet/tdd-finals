@@ -17,7 +17,7 @@ const ItemDetails = ({
 
   return (  
     <div className="overlay">
-      <div className="item-detail">
+      <div data-testid="item-detail" className="item-detail">
         <button
           className="close-button"
           onClick={() => {
@@ -80,7 +80,7 @@ const ItemDetails = ({
               </tr>
               <tr>
                 <div className="item-detail-add-button">
-                  <button className="item-add-button"
+                  <button data-testid="item-add-button" className="item-add-button"
                   onClick={() => addItemsToCart(items)}>ADD TO SACK</button>
                 </div>
               </tr>

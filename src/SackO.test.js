@@ -1,100 +1,58 @@
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  cleanup,
+  getByTestId,
+  waitFor,
+} from "@testing-library/react";
 
-import SackO from './SackO';
+import ProductPage from "./SackO";
 import "./ItemsData";
+import Item from "./Item";
+import ShoppingCart from "./shoppingSack";
+import ItemDetails from "./ItemDetails";
 
 describe("This is a Shopping order Project", () => {
-    afterEach(cleanup);
+  afterEach(cleanup);
 
-     it("has a display for email and token", async () => {
-         render(<SackO />);
+  it("has a menu header", () => {
+    render(<ProductPage />);
+    const header = screen.getByTestId("header");
+    expect(header).toBeInTheDocument();
+  });
 
-        const account = screen.getByTestId("Token");
-        expect(account).toBeInTheDocument();
-        await waitFor(()=>{
-            expect(screen.findByText("QpwL5tke4Pnpja7X4")).toBeTruthy();
-        })
-    });
+  it("has a button for cart", () => {
+    render(<ProductPage />);
+    const btn = screen.getByTestId("sack");
+    expect(btn).toBeInTheDocument();
+  });
 
-    it("has a button for logout", () => {
-       
-        <LoginCall/>
-          render(<Dashboard/>);
+  it("has a search bar", () => {
+    render(<ProductPage />);
+    const input = screen.getByTestId("srchbar");
+    expect(input).toBeInTheDocument();
+  });
 
-          const btn1 = screen.getByTestId("send-logout");
-          expect(btn1).toBeInTheDocument();
-    });
-
-    it("has a table for user dashboard", () => {
-        <LoginCall/>
-         render(<Dashboard/>);
-
-        const user_dashboard = screen.getByTestId("user-dashboard");
-        expect(user_dashboard).toBeInTheDocument();
-    });
+  it("has t-shirt items", () => {
+    render(<ProductPage />);
+    const items = screen.getByTestId("items");
+    expect(items).toBeInTheDocument();
+  });
 });
 
-describe("this checks the details of the dashboard", ()=>{
-    afterEach(cleanup);
+describe("Mock add to sack button", () => {
+  afterEach(cleanup);
 
+  it("has add to sack button on item hover", async() => {
+    render(<Item />);
+    fireEvent.mouseEnter(screen.queryByTestId("products-on-hover"));
+    await waitFor(() => screen.getByTestId("add-to-sack"));
+  });
 
-
-    it("Test Dynamic List", async () => {
-        <LoginCall/>
-        render(<Dashboard/>);
-          await waitFor(async () => 
-             expect(await screen.findByText('Leanne Graham')).toBeInTheDocument());
-         expect(screen.getByRole('table')).toHaveTextContent('Leanne Graham');   
-    });
-
+  it("has item detail modal", async() => {
+    render(<ItemDetails />);
+    waitFor(() => expect(getByTestId("item-detail")).toBeInTheDocument());
+  });
 });
 
-
-
-
-describe("Testing results after fetch...", ()=>{
-	
-	afterEach(cleanup);
-
-	it("Check if a certain user exists...", async () => {   
-        <LoginCall/>
-		render(<Dashboard/>);	
-	    expect(await screen.findByText('Leanne Graham')).toBeInTheDocument();
-	});
-
-	it("Check initial no of users in list...", async () => {  
-        <LoginCall/>
-	        render(<Dashboard/>);
-	// eslint-disable-next-line testing-library/no-await-sync-query
-                const items = await screen.getByTestId('total-users');
-                
-                expect(items).toHaveTextContent("Total Users: 0");
-	 });
-
-	it("Check total no of users in list...", async () => {  
-        <LoginCall/>
-		render(<Dashboard/>);
-		// li tag/element has a role of listitem
-		// https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listitem_role
-
-		// using getAllByRole()
-		const items = await screen.findAllByRole('list');
-		expect(items.length).toEqual(10);
-
-		// using getAllByTestId()
-		const users = await screen.findAllByRole('list');
-		expect(users.length).toEqual(10);
-	});
-});
-
-const LoginCall =()=> {
-    render(<Login/>);
-    //email
-    const email = screen.getByTestId("email");
-    fireEvent.change(email, {target: {value : "eve.holt@reqres.in"}});
-
-    //password
-    const password = screen.getByTestId("password");
-    fireEvent.change(password, {target: {value : "cityslicka"}});
-    render( <Dashboard/>);
-}
