@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import "./SackO.css";
+import "./css/SackO.css";
 import ItemDetails from "./ItemDetails";
 import items from "./ItemsData";
 import { GiSwapBag } from "react-icons/gi";
@@ -13,6 +13,10 @@ const ProductPage = () => {
   const [sackVisibilty, setSackVisible] = useState(false);
   const [itemsInCart, setItems] = useState([]);
   const addItemsToCart = () => {
+    const temp = currID + 1;
+    if(itemsInCart.some((item) => item.id === temp)) {
+      return;
+    }
     const newItems = {
       ...items[currID],
       count: 1,
@@ -33,15 +37,13 @@ const ProductPage = () => {
           items={itemsInCart}
           onClose={() => setSackVisible(false)}
           currID={currID}
+          setItems={setItems}
         />
       </div>
       <div className="upper-display">
         <b>Free Shipping within the Philippines on all orders over P500.00</b>
       </div>
       <div className="details">
-        <td>
-          <h2 className="ghost"> SACK-O </h2>
-        </td>
         <td>
           <h4 className="help">Help</h4>
         </td>
@@ -53,39 +55,49 @@ const ProductPage = () => {
           <h4 className="ghost-com">Sack-o.com</h4>
         </td>
       </div>
+      <div className="sticky-header">
+        <hr className="solid" />
+        <div className="header">
+        <div>
+          <td>
+            <h2 className="ghost"> SACK-O </h2>
+          </td>
+        </div>
+        <div className="details-two">
+          <td>
+            <h4 className="r"> MENS </h4>
+          </td>
+          <td>
+            <h4 className="r">WOMENS</h4>
+          </td>
+          <td>
+            <h4 className="r">KIDS</h4>
+          </td>
+          <td>
+            <h4 className="r">SALE</h4>
+          </td>
 
-      <hr className="solid" />
+          <input className="search-field" placeholder="Search"></input>
 
-      <div className="details-two">
-        <td>
-          <h4 className="r"> MENS </h4>
-        </td>
-        <td>
-          <h4 className="r">WOMENS</h4>
-        </td>
-        <td>
-          <h4 className="r">KIDS</h4>
-        </td>
-        <td>
-          <h4 className="r">SALE</h4>
-        </td>
+          <td>
+            <button
+              className="sack-button"
+              onClick={() => setSackVisible(true)}
+            >
+              <GiSwapBag size={28} />
+              {itemsInCart.length > 0 && (
+                <span className="product-count">{itemsInCart.length}</span>
+              )}
+            </button>
+          </td>
+          <td>
+            <h4 className="cart"> ₱</h4>
+          </td>
+        </div>
+        </div>
 
-        <input className="search-field" placeholder="Search"></input>
-
-        <td>
-          <button className="sack-button" onClick={() => setSackVisible(true)}>
-            <GiSwapBag size={28} />
-            {itemsInCart.length > 0 && (
-              <span className="product-count">{itemsInCart.length}</span>
-            )}
-          </button>
-        </td>
-        <td>
-          <h4 className="cart"> ₱</h4>
-        </td>
+        <hr className="solid-two" />
       </div>
-
-      <hr className="solid-two" />
       <ItemDetails
         items={items}
         show={showItemDetails}
@@ -108,6 +120,7 @@ const ProductPage = () => {
           );
         })}
       </div>
+      <div className="footer">footer</div>
     </>
   );
 };

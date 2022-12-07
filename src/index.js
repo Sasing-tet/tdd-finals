@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './css/index.css';
 import SackO from './SackO';
 import reportWebVitals from './reportWebVitals';
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./SackO.css";
+import "./css/SackO.css";
 
 const Item = ({ handleItemClick, id, productName, img, price}) => {
   const [isHovering, setIsHovering] = useState(false);

@@ -59,65 +59,65 @@ const items = [
       },
       desc: `Shabby chic keffiyeh`,
     },
-    // {
-    //   id: 5,
-    //   productName: 'Felegant Paris Graphic Short Sleeve Tee',
-    //   category: 'Men',
-    //   price: 20.99,
-    //   img: './assets/item 4 front.jpg',
-    //   img2: './assets/item 4 back.jpg',
-    //   sizeButton: {
-    //     small: "S", 
-    //     medium: "M", 
-    //     Large: "L", 
-    //     xLarge: "XL" 
-    //   },
-    //   desc: `Shabby chic keffiyeh`,
-    // },
-    // {
-    //   id: 6,
-    //   productName: 'Felegant Paris Graphic Short Sleeve Tee',
-    //   category: 'Men',
-    //   price: 20.99,
-    //   img: './assets/item 4 front.jpg',
-    //   img2: './assets/item 4 back.jpg',
-    //   sizeButton: {
-    //     small: "S", 
-    //     medium: "M", 
-    //     Large: "L", 
-    //     xLarge: "XL" 
-    //   },
-    //   desc: `Shabby chic keffiyeh`,
-    // },
-    // {
-    //   id: 7,
-    //   productName: 'Felegant Paris Graphic Short Sleeve Tee',
-    //   category: 'Men',
-    //   price: 20.99,
-    //   img: './assets/item 4 front.jpg',
-    //   img2: './assets/item 4 back.jpg',
-    //   sizeButton: {
-    //     small: "S", 
-    //     medium: "M", 
-    //     Large: "L", 
-    //     xLarge: "XL" 
-    //   },
-    //   desc: `Shabby chic keffiyeh`,
-    // },
-    // {
-    //   id: 8,
-    //   productName: 'Felegant Paris Graphic Short Sleeve Tee',
-    //   category: 'Men',
-    //   price: 20.99,
-    //   img: './assets/item 4 front.jpg',
-    //   img2: './assets/item 4 back.jpg',
-    //   sizeButton: {
-    //     small: "S", 
-    //     medium: "M", 
-    //     Large: "L", 
-    //     xLarge: "XL" 
-    //   },
-    //   desc: `Shabby chic keffiyeh`,
-    // },
+    {
+      id: 5,
+      productName: 'Felegant Paris Graphic Short Sleeve Tee',
+      category: 'Women',
+      price: 20.99,
+      img: './assets/item 4 front.jpg',
+      img2: './assets/item 4 back.jpg',
+      sizeButton: {
+        small: "S", 
+        medium: "M", 
+        Large: "L", 
+        xLarge: "XL" 
+      },
+      desc: `Shabby chic keffiyeh`,
+    },
+    {
+      id: 6,
+      productName: 'Felegant Paris Graphic Short Sleeve Tee',
+      category: 'Women',
+      price: 20.99,
+      img: './assets/item 4 front.jpg',
+      img2: './assets/item 4 back.jpg',
+      sizeButton: {
+        small: "S", 
+        medium: "M", 
+        Large: "L", 
+        xLarge: "XL" 
+      },
+      desc: `Shabby chic keffiyeh`,
+    },
+    {
+      id: 7,
+      productName: 'Felegant Paris Graphic Short Sleeve Tee',
+      category: 'Kids',
+      price: 20.99,
+      img: './assets/item 4 front.jpg',
+      img2: './assets/item 4 back.jpg',
+      sizeButton: {
+        small: "S", 
+        medium: "M", 
+        Large: "L", 
+        xLarge: "XL" 
+      },
+      desc: `Shabby chic keffiyeh`,
+    },
+    {
+      id: 8,
+      productName: 'Felegant Paris Graphic Short Sleeve Tee',
+      category: 'Kids',
+      price: 20.99,
+      img: './assets/item 4 front.jpg',
+      img2: './assets/item 4 back.jpg',
+      sizeButton: {
+        small: "S", 
+        medium: "M", 
+        Large: "L", 
+        xLarge: "XL" 
+      },
+      desc: `Shabby chic keffiyeh`,
+    },
   ];
   export default items;

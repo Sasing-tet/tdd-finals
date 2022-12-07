@@ -1,4 +1,4 @@
-import "./SackO.css";
+import "./css/SackO.css";
 import items from "./ItemsData";
 import { useState } from "react";
 
