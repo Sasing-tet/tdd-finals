@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "./css/shoppingSack.css";
-import CheckoutSack from "./CheckoutSack";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
@@ -10,8 +9,14 @@ function ShoppingCart({
   items,
   onProductRemove,
   onClose,
+  setItems,
   onQuantityChange,
 }) {
+
+  const handleDelete = ({ id }) => {
+    setItems(items.filter((item) => item.id !== id));
+  };
+
   return (
     <div
       className="modal"
@@ -57,7 +62,7 @@ function ShoppingCart({
               </select>
               <button
                 className="btn remove-btn"
-                onClick={() => onProductRemove(items)}
+                onClick={() => handleDelete(items)}
               >
                 <RiDeleteBin6Line size={20} />
               </button>

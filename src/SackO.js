@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { useState } from "react";
 import React from "react";
 import "./css/SackO.css";
 import ItemDetails from "./ItemDetails";
 import items from "./ItemsData";
 import { GiSwapBag } from "react-icons/gi";
-import { GiSwapBag } from "react-icons/gi";
 import ShoppingCart from "./shoppingSack";
-import Item from "./Item";
 import Item from "./Item";
 
 const ProductPage = () => {
@@ -32,6 +29,24 @@ const ProductPage = () => {
     setShowItemDetails(true);
   };
 
+  const onQuantityChange = (
+		itemId,
+		count
+	) => {
+		setItems((oldState) => {
+			const itemIndex =
+				oldState.findIndex(
+					(items) =>
+						items.id === itemId
+				);
+			if (itemIndex !== -1) {
+				oldState[itemIndex].count =
+					count;
+			}
+			return [...oldState];
+		});
+  };
+
   return (
     <>
       <div>
@@ -41,6 +56,7 @@ const ProductPage = () => {
           onClose={() => setSackVisible(false)}
           currID={currID}
           setItems={setItems}
+          onQuantityChange={onQuantityChange}
         />
       </div>
       <div className="upper-display">
