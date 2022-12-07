@@ -97,3 +97,4 @@ const LoginCall =()=> {
     const password = screen.getByTestId("password");
     fireEvent.change(password, {target: {value : "cityslicka"}});
     render( <Dashboard/>);
+}
