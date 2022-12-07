@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useState } from "react";
 import React from "react";
 import "./css/SackO.css";
 import ItemDetails from "./ItemDetails";
 import items from "./ItemsData";
 import { GiSwapBag } from "react-icons/gi";
+import { GiSwapBag } from "react-icons/gi";
 import ShoppingCart from "./shoppingSack";
+import Item from "./Item";
 import Item from "./Item";
 
 const ProductPage = () => {
