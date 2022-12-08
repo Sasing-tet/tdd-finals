@@ -11,6 +11,9 @@ function ShoppingCart({
   setItems,
   onQuantityChange,
 }) {
+
+  const totalPrice= items.reduce((price, items)=> price + items.count * items.price, 0)
+
   const handleDelete = ({ id }) => {
     setItems(items.filter((item) => item.id !== id));
   };
@@ -42,6 +45,11 @@ function ShoppingCart({
                   {items.price * items.count}$
                 </span>
               </div>
+              {/* <div>
+                        <button onClick={()=>onQuantityChange(items, +1)}> - </button>
+                        <button>{items.count}</button>
+                        <button onClick={()=>handleDelete(items, -1)}> + </button>
+                    </div> */}
               <select
                 className="count"
                 value={items.count}
@@ -67,7 +75,13 @@ function ShoppingCart({
             </div>
           ))}
           {items.length > 0 && (
+            <>
+            <div className="cart-total-price-name"> Total price <div 
+            className="cart-total-price"> 
+             ${totalPrice.toFixed(2)}</div>
+            </div>
             <button className="btn checkout-btn">Proceed to checkout</button>
+            </>
           )}
         </div>
       </div>
