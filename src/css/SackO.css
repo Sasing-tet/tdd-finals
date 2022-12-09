@@ -7,15 +7,16 @@ td {
 }
 
 .body {
-  background-color: gainsboro;
+  background-color: rgb(231, 231, 231);
 }
 
 .upper-display {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 30px;
   color: white;
+  background-color:  #1f961b;
 }
 
 .details {
@@ -70,6 +71,7 @@ td {
   top: 0;
   background-color: rgb(246, 245, 245);
   z-index: 1;
+  box-shadow: 0 5px 10px #88888843;
 }
 
 .r {
@@ -108,7 +110,6 @@ td {
 .products:hover {
  box-shadow: 1px 1px 15px #888888;
  transition: 0.5s;
- /* transform: scale(1.03); */
 }
 
 .product-box-one {
