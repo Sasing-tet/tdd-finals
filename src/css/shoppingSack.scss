@@ -1,0 +1,135 @@
+@import "../Variables/Variables.scss";
+
+.modal {
+	position: $posFixed;
+	top: $zeroMargin;
+	left: $zeroMargin;
+	right: $zeroMargin;
+	bottom: $zeroMargin;
+	width: $widthNormal;
+	height: $heightNormal;
+	background-color: $background-color-modal;
+	z-index: $z-index;
+}
+
+.shoppingCart {
+	width: $widthSixty;
+	height: $heightNinety;
+	margin: $margin;
+	background-color: $bgColorWhite;
+	padding: $paddingOne;
+	display: $displayFlex;
+	flex-direction: $flexColumn;
+	position: $position;
+	border-radius: $borderRadiusOne;
+}
+
+.shoppingCart .header {
+	display: $displayFlex;
+	background-color: $background-color-grayish;
+	padding: $paddingTwo;
+	justify-content: $justify;
+	border-radius: $borderRadiusTwo;
+}
+
+.close-btn {
+	color: $color;
+    background-color:$background-color-btn;
+    border: $noBorder;
+}
+
+.empty-text {
+	display: $displayBlock;
+	padding: $paddingThree;
+	margin: $marginAuto;
+}
+
+.cart-products {
+	display: $displayFlex;
+	flex-direction: $flexColumn;
+	align-items: $alignStart;
+	padding: $paddingFour;
+	overflow-y: $overflow-y;
+	
+}
+
+.cart-product {
+	display: $displayFlex;
+	flex-direction: $flexRow;
+	justify-content: $justify;
+	align-items: $alignCenter;
+	width: $widthNormal;
+	background-color: $backgroundWhiteFFF;
+	padding: $paddingFive;
+	border: $border;
+	max-width: $maxWidth;
+}
+
+img.product-image {
+	margin: $zeroMargin;
+	width: $widthImage;
+}
+
+.product-info h3 {
+	margin-left: $margin-left;
+	font-weight: $font-weight;
+	font-size: $font-size;
+	min-width: $min-width;
+}
+
+.product-price {
+	color: $priceColor;
+	font-weight: $font-weightTwo;
+	margin-left: $margin-left;
+}
+
+.cart-product select {
+	width: $width;
+	font-size: $font-size;
+	outline: $outline;
+}
+
+.checkout-btn {
+	background-color: $background-color-modal;
+	padding: $paddingSix;
+	font-size: $font-size;
+	color: $backgroundWhiteFFF;
+	align-self: $alignCenter;
+	margin: $marginTwo;
+}
+
+.prod-img-info {
+	display: $displayFlex;
+}
+.remove-btn {
+	background-color: $background-color-btn;
+	width: $widthThree;
+	height: $heightTwo;
+	border-radius: $border-radius;
+	border: $noBorder;
+	transition: $transition;
+}
+
+.remove-btn:hover {
+	width: $widthThree;
+	height:  $heightTwo;
+	border-radius: $border-radius;
+	border: $noBorder;
+	color: $colorBtn;	
+	transition: $transition;
+}
+
+/* .cart-total-price-name{
+	display: flex;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 22%;
+	font-size: 20px;
+	font-weight: 700;
+	border-top: 2px solid black;
+}
+
+.cart-total-price{
+
+	padding-left: 40%;
+} */

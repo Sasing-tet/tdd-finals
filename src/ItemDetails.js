@@ -1,5 +1,4 @@
 import "./css/ItemDetails.css";
-import items from "./ItemsData";
 import { useState } from "react";
 
 const ItemDetails = ({
@@ -33,20 +32,22 @@ const ItemDetails = ({
                 <img
                   src={items[currID].img}
                   className="thumb"
+                  alt="image1"
                   onClick={() => setImageThumb(true)}
                 />
                 <img
                   src={items[currID].img2}
                   className="thumb"
+                  alt="image2"
                   onClick={() => setImageThumb(false)}
                 />
               </div>
             </td>
             <td>
               {imageThumb ? (
-                <img src={items[currID].img} />
+                <img src={items[currID].img} alt="image1" />
               ) : (
-                <img src={items[currID].img2} />
+                <img src={items[currID].img2} alt="image2" />
               )}
             </td>
             <div className="info">

@@ -1,0 +1,63 @@
+//Positions
+$posFixed: fixed;
+$displayFlex: flex;
+$flexColumn: column;
+$position: relative;
+$displayBlock: block;
+$flexRow: row;
+$overflow-y: scroll;
+
+// marrgins,radius and content
+$zeroMargin: 0;
+$z-index: 10;
+$margin: 2rem auto;
+$paddingOne: 1rem;
+$borderRadiusOne: 10px;
+$borderRadiusTwo: 5px;
+$paddingTwo: 0 20px;
+$paddingThree: 2rem;
+$justify: space-between;
+$noBorder: none;
+$marginAuto: auto;
+$alignCenter: center;
+$alignStart: start;
+$paddingFour: 1rem 0;
+$paddingFive: 10px 20px;
+$border: 3px solid #eee;
+$maxWidth: 94%;
+$margin-left: 20px;
+$min-width: 400px;
+$widthImage: 100px;
+$font-weightTwo: 600;
+$width: 70px;
+$outline: none;
+$paddingSix: 10px 20px;
+$marginTwo: 2rem 0;
+$widthThree: 40px;
+$heightTwo: 40px;
+$border-radius: 50%;
+$transition: 0.5s;
+
+//fonts
+$font-size: 1rem;
+$font-weight: 500;
+$font-size: 18px;
+
+//Background colors
+$background-color-modal: #00000055;
+$bgColorWhite: #eee;
+$background-color-grayish: #ccc;
+$backgroundWhiteFFF: #fff;
+$priceColor: rgb(211, 5, 5);
+$colorBtn: rgb(157, 64, 64);	
+
+//btn sass
+$background-color-btn: transparent;
+$color: var(--main-color);
+
+
+//sizes
+$widthNormal: 100%;
+$widthSixty: 60%;
+$heightNormal: 100%;
+$heightNinety: 90%;
