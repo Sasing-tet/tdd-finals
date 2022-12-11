@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/shoppingSack.css";
+import "./css/shoppingSack.scss";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
@@ -40,7 +40,7 @@ function ShoppingCart({
           )}
           {items.map((items) => (
             <div className="cart-product" key={items.id}>
-              <img className="product-image" src={items.img} />
+              <img className="product-image" src={items.img} alt="prod"/>
               <div className="product-info">
                 <h3>{items.productName}</h3>
                 <span className="product-price">
