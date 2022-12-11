@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import "./css/SackO.css";
+import "./css/SackO.scss";
 import ItemDetails from "./ItemDetails";
 import items from "./ItemsData";
 import { GiSwapBag } from "react-icons/gi";
 import ShoppingCart from "./shoppingSack";
 import Item from "./Item";
-
-const colors = ["#b33f2b"];
+import cart from "./css/cart.gif";
+import { AiOutlineArrowUp } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
+import { IoIosMail } from "react-icons/io";
 
 const ProductPage = () => {
   const [showItemDetails, setShowItemDetails] = useState(false);
   const [currID, setCurrID] = useState(1);
   const [sackVisibilty, setSackVisible] = useState(false);
   const [itemsInCart, setItems] = useState([]);
-  const [value, setValue] = useState(0);
+  const [scrollToTop, setscrollToTop] = useState(false);
   const addItemsToCart = () => {
     const temp = currID + 1;
     if (itemsInCart.some((item) => item.id === temp)) {
@@ -42,12 +44,23 @@ const ProductPage = () => {
     });
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setscrollToTop(true);
+      } else {
+        setscrollToTop(false);
+      }
+    });
+  }, []);
 
-  setInterval(
-    function () {
-      var randomColor = Math.floor(Math.random()*16777215).toString(16);
-      document.body.style.backgroundColor = "#"+randomColor;
-    },1000);
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <div>
@@ -61,33 +74,42 @@ const ProductPage = () => {
           onQuantityChange={onQuantityChange}
         />
       </div>
-      <div className="upper-display" style={{ backgroundColor: colors[value] }}>
+      <div className="upper-display">
+        <img src={cart} className="cart-gif" alt="gif" />
         <b>Free Shipping within the Philippines on all orders over P500.00</b>
       </div>
       <div className="body">
         <div className="details">
-          <h4 className="help">Help</h4>
-          <h4 className="blog">Blog</h4>
-          <h4 className="ghost-com">Sack-o.com</h4>
+          <div className="details-container">
+            <h5 className="upper-header">Help</h5>
+            <h5 className="upper-header">Blog</h5>
+            <h5 className="upper-header">Sack-o.com</h5>
+          </div>
+          <hr className="solid" />
         </div>
         <div className="sticky-header">
-          <hr className="solid" />
           <div data-testid="header" className="header">
-            <div>
+            <span className="logo-container">
+              <img src="./assets/logo.png" className="logo" alt="logo" />
               <h2 data-testid="title" className="ghost">
                 SACK-O
               </h2>
-            </div>
+            </span>
             <div className="details-two">
-              <h4 className="r"> MENS </h4>
-              <h4 className="r">WOMENS</h4>
-              <h4 className="r">KIDS</h4>
-              <h4 className="r">SALE</h4>
-              <input
-                data-testid="srchbar"
-                className="search-field"
-                placeholder="Search"
-              ></input>
+              <h4 className="r">All Products</h4>
+              <h4 className="r">Mens</h4>
+              <h4 className="r">Womens</h4>
+              <h4 className="r">Kids</h4>
+              <div className="search-container">
+                <span className="search-icon">
+                  <BiSearch size={22} />
+                </span>
+                <input
+                  data-testid="srchbar"
+                  className="search-field"
+                  placeholder="Search"
+                ></input>
+              </div>
 
               <button
                 data-testid="sack"
@@ -112,6 +134,14 @@ const ProductPage = () => {
             setItems={setItems}
           />
         </div>
+        <div className="items-title">
+          <h4 className="items-title-text">Items Available</h4>
+          <div className="items-text-breadcrumbs">
+            <button className="breadcrumbs-btn">Home</button>
+            {">"}
+            <button className="breadcrumbs-btn">All Products</button>
+          </div>
+        </div>
         <div data-testid="items" className="items-map">
           {items.map((menuItem) => {
             const { id, productName, img, price } = menuItem;
@@ -126,7 +156,49 @@ const ProductPage = () => {
             );
           })}
         </div>
-        <div className="footer">footer</div>
+        {scrollToTop && (
+          <button className="scroll-to-top" onClick={scrollUp}>
+            <AiOutlineArrowUp size={28} />
+          </button>
+        )}
+        <div className="footer">
+          <div className="footer-columns">
+            <div className="footer-column1">
+              <img
+                src="./assets/logo-white.png"
+                className="footer-logo"
+                alt="logo"
+              />
+              <h3 className="tagline">SACK-O</h3>
+              <h4 className="tagline">the SACK for Stylish Champions.</h4>
+            </div>
+            <div className="footer-column2">
+              <h4>PRODUCTS</h4>
+              <h5 className="footer-menu">All Products</h5>
+              <h5 className="footer-menu">Mens</h5>
+              <h5 className="footer-menu">Womens</h5>
+              <h5 className="footer-menu">Kids</h5>
+            </div>
+            <div className="footer-column3">
+              <h4 className="contact">Questions? Drop us a line!</h4>
+              <p>We'd love to hear from you.</p>
+              <br />
+              <span className="contact-field">
+                <input
+                  className="footer-contact"
+                  placeholder="Contact Us"
+                ></input>
+                <button className="footer-contact-btn">
+                  <IoIosMail size={35}/>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <hr className="footer-hr" />
+        <div className="footer-creds">
+          ©2009-2022 SACK-O All Rights Reserved
+        </div>
       </div>
     </>
   );

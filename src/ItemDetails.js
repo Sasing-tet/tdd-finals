@@ -1,4 +1,4 @@
-import "./css/ItemDetails.css";
+import "./css/ItemDetails.scss";
 import { useState } from "react";
 
 const ItemDetails = ({

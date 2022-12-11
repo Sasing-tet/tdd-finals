@@ -38,7 +38,7 @@ function ShoppingCart({
           )}
           {items.map((items) => (
             <div className="cart-product" key={items.id}>
-              <img className="product-image" src={items.img} />
+              <img className="product-image" src={items.img} alt="prod"/>
               <div className="product-info">
                 <h3>{items.productName}</h3>
                 <span className="product-price">
