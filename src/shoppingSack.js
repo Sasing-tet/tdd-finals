@@ -17,6 +17,9 @@ function ShoppingCart({
   const handleDelete = ({ id }) => {
     setItems(items.filter((item) => item.id !== id));
   };
+  const checkout = () => {
+    alert(`Checkout - Subtotal: ₱ ${totalPrice.toFixed(2)}`)
+}
 
   return (
     <div
@@ -75,13 +78,16 @@ function ShoppingCart({
             </div>
           ))}
           {items.length > 0 && (
-            <>
-            <div className="cart-total-price-name"> Total price <div 
-            className="cart-total-price"> 
-             ${totalPrice.toFixed(2)}</div>
-            </div>
-            <button className="btn checkout-btn">Proceed to checkout</button>
-            </>
+           <div className="cart-summary">
+           <div className="cart-checkout">
+             <div className="subtotal">
+               <span>Subtotal</span>
+               <span className="amount">${totalPrice.toFixed(2)}</span>
+             </div>
+             <p>Taxes and shipping calculated at checkout</p>
+             <button className="checkout-btn" onClick={checkout}>CHECKOUT</button>
+           </div>
+         </div>
           )}
         </div>
       </div>
