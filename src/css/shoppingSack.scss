@@ -137,6 +137,7 @@ img.product-image {
   }
   .cart-checkout .amount {
 	font-weight: 700;
+	color: rgb(211, 5, 5);
   }
   .cart-checkout p {
 	font-size: 14px;
@@ -149,23 +150,18 @@ img.product-image {
 	border-radius: 5px;
 	font-weight: 400;
 	letter-spacing: 1.15px;
-	background-color: #4b70e2;
+	background-color: black;
 	color: #f9f9f9;
 	border: none;
 	outline: none;
 	cursor: pointer;
+	transition: 0.5s;
   }
-/* .cart-total-price-name{
-	display: flex;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 22%;
-	font-size: 20px;
-	font-weight: 700;
-	border-top: 2px solid black;
-}
+  .cart-checkout button:hover {
+	background-color: transparent;
+	color: black;
+	border: 2px solid black;
+	cursor: pointer;
+	transition: 0.5s;
+  }
 
-.cart-total-price{
-
-	padding-left: 40%;
-} */

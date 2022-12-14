@@ -4,7 +4,7 @@ const AlertMessage = ({ type, message, removeAlert, grocery }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       removeAlert();
-    }, 3000); //use effect for removing timed alert message
+    }, 3000); 
     return () => clearTimeout(timeout);
   }, [grocery]);
 

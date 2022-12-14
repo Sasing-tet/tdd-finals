@@ -72,6 +72,7 @@ const ProductPage = () => {
           currID={currID}
           setItems={setItems}
           onQuantityChange={onQuantityChange}
+          setSackVisible={setSackVisible}
         />
       </div>
       <div className="upper-display">
