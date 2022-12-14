@@ -27,8 +27,6 @@ function ShoppingCart({
   };
   const checkout = () => {
     setshowCheckout(true);
-    // alert(`Checkout - Subtotal: $ ${totalPrice.toFixed(2)}`);
-    // setItems([]);
   };
 
   return (

@@ -143,10 +143,11 @@ const ProductPage = () => {
             <button className="breadcrumbs-btn">All Products</button>
           </div>
         </div>
-        <div data-testid="items" className="items-map">
+        <div data-testid="items" key={items.id} className="items-map">
           {items.map((menuItem) => {
             const { id, productName, img, price } = menuItem;
             return (
+              <div>
               <Item
                 handleItemClick={handleItemClick}
                 id={id}
@@ -154,6 +155,7 @@ const ProductPage = () => {
                 img={img}
                 price={price}
               />
+              </div>
             );
           })}
         </div>

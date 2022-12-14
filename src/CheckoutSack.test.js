@@ -1,43 +1,49 @@
 import { render, screen, fireEvent, cleanup, getByTestId, waitFor,} from "@testing-library/react";
-import ShoppingCart from "./shoppingSack";
+import CheckOut from "./checkoutSack";
 
 describe("This is Checkout test file, Check UI elements", () => {
       afterEach(cleanup);
 
       it("has name textfield", () => {
-            render(<ShoppingCart />); // function Checkout()
-            const cart = screen.getByTestId("modal");
-            expect(cart).toBeInTheDocument();
+            render(<CheckOut />); 
+            const name = screen.getByTestId("name");
+            expect(name).toBeInTheDocument();
       });
 
       it("has address textfield", () => {
-            render(<ShoppingCart />);
-            const header = screen.getByTestId("shoppingCart"); // <div className="py-3 bg-warning"> 
-            expect(header).toBeInTheDocument();
+            render(<CheckOut />);
+            const addr = screen.getByTestId("address"); 
+            expect(addr).toBeInTheDocument();
       });
 
       it("has payment methods", () => {
-            render(<ShoppingCart />);
-            const cartProducts = screen.getByTestId("cart-products"); // <div className="py-3 bg-warning"> 
-            expect(cartProducts).toBeInTheDocument();
+            render(<CheckOut />);
+            const paym = screen.getByTestId("payment-methods"); 
+            expect(paym).toBeInTheDocument();
       });
       // count
-      it("displays count info", () => {
-            render(<ShoppingCart />);
-            const cartProducts = screen.getByTestId("count"); // <div className="py-3 bg-warning"> 
-            expect(cartProducts).toBeInTheDocument();
+      it("shipping fee", () => {
+            render(<CheckOut />);
+            const shipping = screen.getByTestId("shipping-fee"); // <div className="py-3 bg-warning"> 
+            expect(shipping).toBeInTheDocument();
       });
+
+      it("displays Total amount of checkout items", () => {
+        render(<CheckOut />);
+        const cartProducts = screen.getByTestId("total"); // <div className="py-3 bg-warning"> 
+        expect(cartProducts).toBeInTheDocument();
+  });
 });   
 
 describe("buttons in shoppingCart", () => {
       afterEach(cleanup);
-      it("will execute close button", async() => {
-            render(<ShoppingCart />);
+      it("will execute alert message onclick", async() => {
+            render(<CheckOut />);
             const btn = screen.queryByTestId("btn-remove-btn")
             waitFor (() => fireEvent.click(btn).toBeInTheDocument());
       });
-      it("will execute checkout button", async() => {
-            render(<ShoppingCart />);
+      it("will execute confirm checkout button", async() => {
+            render(<CheckOut />);
             const btn = screen.queryByTestId("btn-checkout-btn")
             waitFor (() => fireEvent.click(btn).toBeInTheDocument());
       });

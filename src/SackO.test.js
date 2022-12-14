@@ -34,8 +34,8 @@ describe("This is a Shopping order Project", () => {
 
   it("has t-shirt items", () => {
     render(<ProductPage />);
-    const items = screen.getByTestId("items");
-    expect(items).toBeInTheDocument();
+    const item = screen.getByTestId("items");
+    expect(item).toBeInTheDocument();
   });
 });
 

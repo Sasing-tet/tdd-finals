@@ -10,10 +10,7 @@ const CheckOut = ({
   setItems,
   setSackVisible,
 }) => {
-  //   const initialState = JSON.parse(localStorage.getItem("list")) || [];
   const [alertMsg, setAlertMsg] = useState(false);
-  //   const [userInput, setuserInput] = useState(initialState);
-  //   setuserInput(...userInput, {name: })
 
   const showAlert = (show = false, type = "", message = "") => {
     setAlertMsg({ show, type, message });
@@ -61,7 +58,7 @@ const CheckOut = ({
                   <div>
                     Full Name:
                     <input
-                      data-testid="srchbar"
+                      data-testid="name"
                       className="name-input"
                       placeholder="Full Name:"
                     ></input>
@@ -70,7 +67,7 @@ const CheckOut = ({
                   <div>
                     Address:
                     <input
-                      data-testid="srchbar"
+                      data-testid="address"
                       className="address-input"
                       placeholder="Address:"
                     ></input>
@@ -78,7 +75,7 @@ const CheckOut = ({
                 </form>
               </div>
               <h2>Payment Method</h2>
-              <div className="payment-container">
+              <div data-testid="payment-methods" className="payment-container">
                 <input type="radio" />
                 <img
                   src="./assets/Paypal-logo.png"
@@ -115,10 +112,10 @@ const CheckOut = ({
                   to the official website/ notice of the logistics company.)
                 </p>
 
-                <h4>
+                <h4 data-testid="shipping-fee">
                   Shipping Fee: ${totalPrice.toFixed(2) * (0.3).toFixed(2)}
                 </h4>
-                <h4> Total: ${totalPrice.toFixed(2)}</h4>
+                <h4 data-testid="total"> Total: ${totalPrice.toFixed(2)}</h4>
 
                 <button
                   className="confirm-checkout-btn"
