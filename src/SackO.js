@@ -17,7 +17,7 @@ const ProductPage = () => {
   const [sackVisibilty, setSackVisible] = useState(false);
   const [itemsInCart, setItems] = useState([]);
   const [scrollToTop, setscrollToTop] = useState(false);
-  const [result, setResult] = useState();
+  const [result, setResult] = useState("");
 
 
 
@@ -65,11 +65,6 @@ const ProductPage = () => {
     });
   };
 
-  const handleClick = (size) =>{
-    setResult(`${size}`);
-  }
-
-
 
 
 
@@ -78,10 +73,10 @@ const ProductPage = () => {
       <div>
         <ShoppingCart
           data-testid="shopcart"
+          currID={currID}
           visibilty={sackVisibilty}
           items={itemsInCart}
           onClose={() => setSackVisible(false)}
-          currID={currID}
           setItems={setItems}
           onQuantityChange={onQuantityChange}
           setSackVisible={setSackVisible}
@@ -146,8 +141,7 @@ const ProductPage = () => {
             currID={currID}
             addItemsToCart={addItemsToCart}
             setItems={setItems}
-            handleClick={handleClick}
-
+            setResult={setResult}
           />
         </div>
         <div className="items-title">

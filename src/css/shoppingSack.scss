@@ -13,7 +13,7 @@
 }
 
 .shoppingCart {
-	width: $widthSixty;
+	width: 55%;
 	height: $heightNinety;
 	margin: $margin;
 	background-color: $bgColorWhite;
@@ -37,6 +37,9 @@
     background-color:$background-color-btn;
     border: $noBorder;
 }
+.close-btn:hover {
+	cursor: pointer;
+}	
 
 .empty-text {
 	display: $displayBlock;
@@ -54,9 +57,7 @@
 }
 
 .cart-product {
-	display: $displayFlex;
-	flex-direction: $flexRow;
-	justify-content: $justify;
+	display: flex;
 	align-items: $alignCenter;
 	width: $widthNormal;
 	background-color: $backgroundWhiteFFF;
@@ -65,33 +66,39 @@
 	max-width: $maxWidth;
 }
 
+
+.select-and-delete {
+	display: flex;
+	justify-content: end;
+	width: 40%;
+}
+
 img.product-image {
 	margin: $zeroMargin;
 	width: $widthImage;
 }
 
-.product-info h3 {
-	margin-left: $margin-left;
-	font-weight: $font-weight;
-	font-size: $font-size;
-	min-width: $min-width;
+.product-info {
+	margin-left: 40px;
 }
 
 .product-price {
+	display: flex;
 	color: $priceColor;
 	font-weight: $font-weightTwo;
-	margin-left: $margin-left;
+
 }
 .size {
 	color: black;
 	font-weight: $font-weightTwo;
-	margin-left: $margin-left;
+	display: flex;
 }
 
 .cart-product select {
 	width: $width;
 	font-size: $font-size;
 	outline: $outline;
+	height: 30px;
 }
 
 .checkout-btn {
@@ -106,6 +113,11 @@ img.product-image {
 .prod-img-info {
 	display: $displayFlex;
 }
+
+.prod-title {
+	width: 320px;
+}
+
 .remove-btn {
 	background-color: $background-color-btn;
 	width: $widthThree;
@@ -122,6 +134,7 @@ img.product-image {
 	border: $noBorder;
 	color: $colorBtn;	
 	transition: $transition;
+	cursor: pointer;
 }
 .cart-summary {
 	display: flex;
@@ -130,6 +143,7 @@ img.product-image {
 	align-self: flex-end;
 	border-top: 1px solid rgb(187, 187, 187);
 	padding-top: 2rem;
+	margin-right: 20px;
   }
   .cart-checkout {
 	width: 270px;

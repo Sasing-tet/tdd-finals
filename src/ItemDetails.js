@@ -8,12 +8,15 @@ const ItemDetails = ({
   currID,
   addItemsToCart,
   setItems,
-  handleClick,
-
+  setResult
 }) => {
  
 
   const [imageThumb, setImageThumb] = useState(true);
+
+  const handleClick = (size) =>{
+    setResult(`${size}`);
+  }
   if (!show) {
     return <></>;
   }
