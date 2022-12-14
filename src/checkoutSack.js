@@ -116,8 +116,7 @@ const CheckOut = ({
                 </p>
 
                 <h4>
-                  Shipping Guarantee: $
-                  {totalPrice.toFixed(2) * (0.3).toFixed(2)}{" "}
+                  Shipping Fee: ${totalPrice.toFixed(2) * (0.3).toFixed(2)}
                 </h4>
                 <h4> Total: ${totalPrice.toFixed(2)}</h4>
 

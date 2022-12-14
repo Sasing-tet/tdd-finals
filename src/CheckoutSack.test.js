@@ -10,13 +10,13 @@ describe("This is Checkout test file, Check UI elements", () => {
             expect(cart).toBeInTheDocument();
       });
 
-      it("has name textfield", () => {
+      it("has address textfield", () => {
             render(<ShoppingCart />);
             const header = screen.getByTestId("shoppingCart"); // <div className="py-3 bg-warning"> 
             expect(header).toBeInTheDocument();
       });
 
-      it("displays shopping Cart products", () => {
+      it("has payment methods", () => {
             render(<ShoppingCart />);
             const cartProducts = screen.getByTestId("cart-products"); // <div className="py-3 bg-warning"> 
             expect(cartProducts).toBeInTheDocument();
