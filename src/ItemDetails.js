@@ -8,11 +8,16 @@ const ItemDetails = ({
   currID,
   addItemsToCart,
   setItems,
+  handleClick,
+
 }) => {
+ 
+
   const [imageThumb, setImageThumb] = useState(true);
   if (!show) {
     return <></>;
   }
+
 
   return (
     <div className="overlay">
@@ -67,16 +72,16 @@ const ItemDetails = ({
               </tr>
               <tr>
                 <div className="sizes-title">Available Sizes: </div>
-                <button className="size-buttons">
+                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.small)}>
                   {items[currID].sizeButton.small}
                 </button>
-                <button className="size-buttons">
+                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.medium)}>
                   {items[currID].sizeButton.medium}
                 </button>
-                <button className="size-buttons">
+                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.Large)}>
                   {items[currID].sizeButton.Large}
                 </button>
-                <button className="size-buttons">
+                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.xLarge)}>
                   {items[currID].sizeButton.xLarge}
                 </button>
               </tr>

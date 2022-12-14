@@ -14,6 +14,7 @@ function ShoppingCart({
   setItems,
   onQuantityChange,
   setSackVisible,
+  result
 }) {
   const [showCheckout, setshowCheckout] = useState(false);
 
@@ -65,6 +66,7 @@ function ShoppingCart({
                 <span className="product-price">
                   {items.price * items.count}$
                 </span>
+                <span className="size">{result}</span>
               </div>
               <select
                 className="count"

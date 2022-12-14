@@ -17,6 +17,10 @@ const ProductPage = () => {
   const [sackVisibilty, setSackVisible] = useState(false);
   const [itemsInCart, setItems] = useState([]);
   const [scrollToTop, setscrollToTop] = useState(false);
+  const [result, setResult] = useState();
+
+
+
   const addItemsToCart = () => {
     const temp = currID + 1;
     if (itemsInCart.some((item) => item.id === temp)) {
@@ -61,6 +65,14 @@ const ProductPage = () => {
     });
   };
 
+  const handleClick = (size) =>{
+    setResult(`${size}`);
+  }
+
+
+
+
+
   return (
     <>
       <div>
@@ -73,6 +85,7 @@ const ProductPage = () => {
           setItems={setItems}
           onQuantityChange={onQuantityChange}
           setSackVisible={setSackVisible}
+          result={result}
         />
       </div>
       <div className="upper-display">
@@ -133,6 +146,8 @@ const ProductPage = () => {
             currID={currID}
             addItemsToCart={addItemsToCart}
             setItems={setItems}
+            handleClick={handleClick}
+
           />
         </div>
         <div className="items-title">
