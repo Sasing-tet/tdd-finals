@@ -1,3 +1,4 @@
+import { useState } from "react";
 import React from "react";
 import "./css/shoppingSack.scss";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -11,14 +12,19 @@ function ShoppingCart({
   setItems,
   onQuantityChange,
 }) {
+  const [alertMsg, setAlertMsg] = useState(false);
 
+  const showAlert = (show = false, type = "", message = "") => {
+    setAlertMsg({ show, type, message });
+  };
   const totalPrice= items.reduce((price, items)=> price + items.count * items.price, 0)
 
   const handleDelete = ({ id }) => {
     setItems(items.filter((item) => item.id !== id));
   };
   const checkout = () => {
-    alert(`Checkout - Subtotal: ₱ ${totalPrice.toFixed(2)}`)
+    alert(`Checkout - Subtotal: ₱ ${totalPrice.toFixed(2)}`);
+    setItems([]);
 }
 
   return (
@@ -45,7 +51,7 @@ function ShoppingCart({
               <div className="product-info">
                 <h3>{items.productName}</h3>
                 <span className="product-price">
-                  {items.price * items.count}$
+                  {items.price * items.count}$ 
                 </span>
               </div>
               {/* <div>
