@@ -1,32 +1,32 @@
-import { render, screen, fireEvent, cleanup, getByTestId, waitFor,} from "@testing-library/react";
+import { render, screen, fireEvent, cleanup, waitFor,} from "@testing-library/react";
 import ShoppingCart from "./shoppingSack";
 
 describe("This is shoppingSack test file, Check UI elements", () => {
       afterEach(cleanup);
 
-      it("UI information of ShoppingCart ", () => {
-            render(<ShoppingCart />); // function Checkout()
+      it("UI information of ShoppingCart", () => {
+            render(<ShoppingCart />);
             const cart = screen.getByTestId("modal");
             expect(cart).toBeInTheDocument();
       });
 
       it("display header of ShoppingCart", () => {
             render(<ShoppingCart />);
-            const header = screen.getByTestId("shoppingCart"); // <div className="py-3 bg-warning"> 
+            const header = screen.getByTestId("shoppingCart");
             expect(header).toBeInTheDocument();
       });
 
       it("displays shopping Cart products", () => {
             render(<ShoppingCart />);
-            const cartProducts = screen.getByTestId("cart-products"); // <div className="py-3 bg-warning"> 
+            const cartProducts = screen.getByTestId("cart-products");
             expect(cartProducts).toBeInTheDocument();
       });
-      // count
-      it("displays count info", () => {
+      it("displays count info", async() => {
             render(<ShoppingCart />);
-            const cartProducts = screen.getByTestId("count"); // <div className="py-3 bg-warning"> 
-            expect(cartProducts).toBeInTheDocument();
+            const select = screen.queryByTestId("count")
+            waitFor (() => fireEvent.click(select).toBeInTheDocument());
       });
+
 });   
 
 describe("buttons in shoppingCart", () => {

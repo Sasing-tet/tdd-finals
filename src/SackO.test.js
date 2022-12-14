@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, cleanup, getByTestId, waitFor, } from "@testing-library/react";
+import { render, screen, fireEvent, cleanup, waitFor, } from "@testing-library/react";
 import ProductPage from "./SackO";
 import "./ItemsData";
 import Item from "./Item";
@@ -37,7 +37,7 @@ describe("Mock add to sack button", () => {
 
   it("has add to sack button on item hover", async() => {
     render(<Item />);
-    fireEvent.mouseEnter(screen.queryByTestId("products-on-hover"));
+    fireEvent.mouseEnter(screen.getByTestId("products-on-hover"));
     await waitFor(() => screen.getByTestId("add-to-sack"));
   });
 
@@ -52,7 +52,7 @@ describe("Mock cart button", () => {
     
   it("has shopping cart", async() => {
     render(<ProductPage />);
-    const btn = screen.queryByTestId("sack")
+    const btn = screen.getByTestId("sack")
     waitFor (() => fireEvent.click(btn).toBeInTheDocument());
   });
 });

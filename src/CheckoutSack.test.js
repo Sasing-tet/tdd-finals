@@ -1,44 +1,53 @@
-import { render, screen, fireEvent, cleanup, getByTestId, waitFor,} from "@testing-library/react";
-import ShoppingCart from "./shoppingSack";
+import { render, screen, fireEvent, cleanup, waitFor,} from "@testing-library/react";
+import CheckOut from "./checkoutSack";
 
 describe("This is Checkout test file, Check UI elements", () => {
       afterEach(cleanup);
 
-      it("has name textfield", () => {
-            render(<ShoppingCart />); // function Checkout()
-            const cart = screen.getByTestId("modal");
-            expect(cart).toBeInTheDocument();
+      it("has company logo", () => {
+            render(<CheckOut />); // function Checkout()
+            const img = screen.queryByTestId("logo");
+            expect(img).toBeDefined();
       });
 
-      it("has address textfield", () => {
-            render(<ShoppingCart />);
-            const header = screen.getByTestId("shoppingCart"); // <div className="py-3 bg-warning"> 
-            expect(header).toBeInTheDocument();
+      it("has textfield for name", () => {
+            render(<CheckOut />);
+            const input1 = screen.queryByPlaceholderText("Full Name:");
+            expect(input1).toBeDefined();
       });
 
-      it("has payment methods", () => {
-            render(<ShoppingCart />);
-            const cartProducts = screen.getByTestId("cart-products"); // <div className="py-3 bg-warning"> 
-            expect(cartProducts).toBeInTheDocument();
+      it("has textfield for address", () => {
+            render(<CheckOut />);
+            const input2 = screen.queryByPlaceholderText("Address:");
+            expect(input2).toBeDefined();
       });
-      // count
-      it("displays count info", () => {
-            render(<ShoppingCart />);
-            const cartProducts = screen.getByTestId("count"); // <div className="py-3 bg-warning"> 
-            expect(cartProducts).toBeInTheDocument();
+
+      it("has three payment methods", () => {
+            render(<CheckOut />);
+            const input3 = screen.queryAllByRole("payment");
+            expect(input3).toBeDefined();
       });
+
+      it("has order details", () => {
+            render(<CheckOut />);
+            const details = screen.queryByTestId("order-details");
+            expect(details).toBeDefined();
+      });
+
 });   
 
-describe("buttons in shoppingCart", () => {
+describe("button in CheckOut", () => {
       afterEach(cleanup);
-      it("will execute close button", async() => {
-            render(<ShoppingCart />);
-            const btn = screen.queryByTestId("btn-remove-btn")
+
+      it("will execute confirm checkout button", async() => {
+            render(<CheckOut />);
+            const btn = screen.queryByTestId("checkout-btn")
             waitFor (() => fireEvent.click(btn).toBeInTheDocument());
       });
-      it("will execute checkout button", async() => {
-            render(<ShoppingCart />);
-            const btn = screen.queryByTestId("btn-checkout-btn")
-            waitFor (() => fireEvent.click(btn).toBeInTheDocument());
+
+      it("has  close button", async() => {
+            render(<CheckOut />);
+            const btn2 = screen.queryByTestId("close-button")
+            waitFor (() => fireEvent.click(btn2).toBeInTheDocument());
       });
 });

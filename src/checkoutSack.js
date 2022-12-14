@@ -29,7 +29,7 @@ const CheckOut = ({
   };
 
   if (!show) {
-    return <></>;
+    return ;
   }
   return (
     <div className="modal1">
@@ -43,6 +43,7 @@ const CheckOut = ({
       <div className="checkoutBox">
         <button
           className="close-button"
+          data-testid="close-button"
           onClick={() => {
             setShowCheckout(false);
           }}
@@ -50,7 +51,7 @@ const CheckOut = ({
           X
         </button>
         <span className="checkout-title-logo">
-          <img src="./assets/logo.png" className="checkout-logo" alt="logo" />
+          <img src="./assets/logo.png" className="checkout-logo" alt="logo" data-testid="logo" label="logo"/>
           <h1>Sack-O Details</h1>
         </span>
         <table>
@@ -61,7 +62,7 @@ const CheckOut = ({
                   <div>
                     Full Name:
                     <input
-                      data-testid="srchbar"
+                      data-testid="name-input"
                       className="name-input"
                       placeholder="Full Name:"
                     ></input>
@@ -70,7 +71,7 @@ const CheckOut = ({
                   <div>
                     Address:
                     <input
-                      data-testid="srchbar"
+                      data-testid="address-input"
                       className="address-input"
                       placeholder="Address:"
                     ></input>
@@ -79,7 +80,7 @@ const CheckOut = ({
               </div>
               <h2>Payment Method</h2>
               <div className="payment-container">
-                <input type="radio" />
+                <input type="radio" data-testid="payment"/>
                 <img
                   src="./assets/Paypal-logo.png"
                   className="payment-logo"
@@ -87,7 +88,7 @@ const CheckOut = ({
                 />
               </div>
               <div className="payment-container">
-                <input type="radio" />
+                <input type="radio" data-testid="payment"/>
                 <img
                   src="./assets/Google_Logo.png"
                   className="payment-logo"
@@ -95,7 +96,7 @@ const CheckOut = ({
                 />
               </div>
               <div className="payment-container">
-                <input type="radio" />
+                <input type="radio" data-testid="payment"/>
                 <img
                   src="./assets/bdo_logo.png"
                   className="payment-logo"
@@ -106,7 +107,7 @@ const CheckOut = ({
           </td>
           <td>
             <tr>
-              <div className="order-details">
+              <div className="order-details" data-testid="order-details">
                 <h3> Shipping Method</h3>
                 <h4>Standard Shipping</h4>
                 <p>
@@ -122,6 +123,7 @@ const CheckOut = ({
 
                 <button
                   className="confirm-checkout-btn"
+                  data-testid="checkout-btn"
                   onClick={handleCheckout}
                 >
                   Confirm Checkout

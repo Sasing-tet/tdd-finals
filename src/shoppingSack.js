@@ -18,7 +18,7 @@ function ShoppingCart({
 }) {
   const [showCheckout, setshowCheckout] = useState(false);
 
-  const totalPrice = items.reduce(
+  const totalPrice = items?.reduce(
     (price, items) => price + items.count * items.price,
     0
   );
@@ -55,10 +55,10 @@ function ShoppingCart({
           </button>
         </div>
         <div className="cart-products" data-testid="cart-products">
-          {items.length === 0 && (
+          {items?.length === 0 && (
             <span className="empty-text">Your sack is currently empty</span>
           )}
-          {items.map((items) => (
+          {items?.map((items) => (
             <div className="cart-product" key={items.id}>
               <img className="product-image" src={items.img} alt="prod" />
               <div className="product-info">
@@ -94,7 +94,7 @@ function ShoppingCart({
               </button>
             </div>
           ))}
-          {items.length > 0 && (
+          {items?.length > 0 && (
             <div className="cart-summary">
               <div className="cart-checkout">
                 <div className="subtotal">
