@@ -162,7 +162,7 @@ const ProductPage = () => {
             <AiOutlineArrowUp size={28} />
           </button>
         )}
-        <div className="footer">
+        <div className="footer" data-testid="footer">
           <div className="footer-columns">
             <div className="footer-column1">
               <img

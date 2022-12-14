@@ -1,12 +1,4 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  cleanup,
-  getByTestId,
-  waitFor,
-} from "@testing-library/react";
-
+import { render, screen, fireEvent, cleanup, getByTestId, waitFor, } from "@testing-library/react";
 import ProductPage from "./SackO";
 import "./ItemsData";
 import Item from "./Item";
@@ -20,12 +12,6 @@ describe("This is a Shopping order Project", () => {
     expect(header).toBeInTheDocument();
   });
 
-  it("has a button for cart", () => {
-    render(<ProductPage />);
-    const btn = screen.getByTestId("sack");
-    expect(btn).toBeInTheDocument();
-  });
-
   it("has a search bar", () => {
     render(<ProductPage />);
     const input = screen.getByTestId("srchbar");
@@ -37,6 +23,13 @@ describe("This is a Shopping order Project", () => {
     const items = screen.getByTestId("items");
     expect(items).toBeInTheDocument();
   });
+  
+  it("has a footer", () => {
+    render(<ProductPage />);
+    const footer = screen.getByTestId("footer");
+    expect(footer).toBeInTheDocument();
+  });
+
 });
 
 describe("Mock add to sack button", () => {
@@ -51,6 +44,15 @@ describe("Mock add to sack button", () => {
   it("has item detail modal", async() => {
     render(<Item />);
     const btn = screen.queryByTestId("add-to-sack")
+    waitFor (() => fireEvent.click(btn).toBeInTheDocument());
+  });});
+
+describe("Mock cart button", () => {
+  afterEach(cleanup);
+    
+  it("has shopping cart", async() => {
+    render(<ProductPage />);
+    const btn = screen.queryByTestId("sack")
     waitFor (() => fireEvent.click(btn).toBeInTheDocument());
   });
 });
