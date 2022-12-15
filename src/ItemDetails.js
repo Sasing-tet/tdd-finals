@@ -7,21 +7,16 @@ const ItemDetails = ({
   setShowItemDetails,
   currID,
   addItemsToCart,
-  setItems,
   setResult,
-  result
 }) => {
- 
-
   const [imageThumb, setImageThumb] = useState(true);
 
-  const handleClick = (size) =>{
+  const handleClick = (size) => {
     setResult(`${size}`);
-  }
+  };
   if (!show) {
     return <></>;
   }
-
 
   return (
     <div className="overlay">
@@ -76,25 +71,41 @@ const ItemDetails = ({
               </tr>
               <tr>
                 <div className="sizes-title">Available Sizes: </div>
-                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.small)}>
-                  {items[currID].sizeButton.small}
-                </button>
-                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.medium)}>
-                  {items[currID].sizeButton.medium}
-                </button>
-                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.Large)}>
-                  {items[currID].sizeButton.Large}
-                </button>
-                <button className="size-buttons" onClick={()=> handleClick(items[currID].sizeButton.xLarge)}>
-                  {items[currID].sizeButton.xLarge}
-                </button>
+                <div>
+                  <button
+                    className="size-buttons"
+                    onClick={() => handleClick(items[currID].sizeButton.small)}
+                  >
+                    {items[currID].sizeButton.small}
+                  </button>
+                  <button
+                    className="size-buttons"
+                    onClick={() => handleClick(items[currID].sizeButton.medium)}
+                  >
+                    {items[currID].sizeButton.medium}
+                  </button>
+                  <button
+                    className="size-buttons"
+                    onClick={() => handleClick(items[currID].sizeButton.Large)}
+                  >
+                    {items[currID].sizeButton.Large}
+                  </button>
+                  <button
+                    className="size-buttons"
+                    onClick={() => handleClick(items[currID].sizeButton.xLarge)}
+                  >
+                    {items[currID].sizeButton.xLarge}
+                  </button>
+                </div>
               </tr>
               <tr>
                 <div className="item-detail-add-button">
                   <button
                     data-testid="item-add-button"
                     className="item-add-button"
-                    onClick={() => {addItemsToCart(items)}}
+                    onClick={() => {
+                      addItemsToCart(items);
+                    }}
                   >
                     ADD TO SACK
                   </button>

@@ -69,7 +69,7 @@ function ShoppingCart({
                 <div className="product-price">
                   {item.price * item.count}$
                 </div>
-                <div className="size">Size: {item.currSize}</div>
+                <div className="size">Size: {item.currSize === "" ? "(default size) M" : item.currSize}</div>
               </div>
               <div className="select-and-delete">
                 <select

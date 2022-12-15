@@ -21,16 +21,14 @@ const ProductPage = () => {
 
   const addItemsToCart = () => {
     const temp = currID + 1;
-    if (items[currID].currSize === "" ) {
-      if (itemsInCart.some((item) => item.id === temp)) {
-        return;
-      }
-      const newItems = {
-        ...items[currID],
-        count: 1,
-      };
-      setItems([...itemsInCart, newItems]);
+    if (itemsInCart.some((item) => item.id === temp)) {
+      return;
     }
+    const newItems = {
+      ...items[currID],
+      count: 1,
+    };
+    setItems([...itemsInCart, newItems]);
     setItems((prevState) => {
       const newState = prevState.map((temp) => {
         if (temp.id === items[currID].id) {
@@ -40,7 +38,6 @@ const ProductPage = () => {
       });
       return newState;
     });
-    console.log("items", itemsInCart);
   };
 
   const handleItemClick = (id) => {
@@ -147,9 +144,7 @@ const ProductPage = () => {
             setShowItemDetails={setShowItemDetails}
             currID={currID}
             addItemsToCart={addItemsToCart}
-            setItems={setItems}
             setResult={setResult}
-            result={result}
           />
         </div>
         <div className="items-title">
