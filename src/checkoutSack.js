@@ -29,7 +29,7 @@ const CheckOut = ({
   };
 
   if (!show) {
-    return ;
+    return;
   }
   return (
     <div className="modal1">
@@ -51,7 +51,13 @@ const CheckOut = ({
           X
         </button>
         <span className="checkout-title-logo">
-          <img src="./assets/logo.png" className="checkout-logo" alt="logo" data-testid="logo" label="logo"/>
+          <img
+            src="./assets/logo.png"
+            className="checkout-logo"
+            alt="logo"
+            data-testid="logo"
+            label="logo"
+          />
           <h1>Sack-O Details</h1>
         </span>
         <table>
@@ -80,7 +86,7 @@ const CheckOut = ({
               </div>
               <h2>Payment Method</h2>
               <div className="payment-container">
-                <input type="radio" data-testid="payment"/>
+                <input type="radio" data-testid="payment" />
                 <img
                   src="./assets/Paypal-logo.png"
                   className="payment-logo"
@@ -88,7 +94,7 @@ const CheckOut = ({
                 />
               </div>
               <div className="payment-container">
-                <input type="radio" data-testid="payment"/>
+                <input type="radio" data-testid="payment" />
                 <img
                   src="./assets/Google_Logo.png"
                   className="payment-logo"
@@ -96,7 +102,7 @@ const CheckOut = ({
                 />
               </div>
               <div className="payment-container">
-                <input type="radio" data-testid="payment"/>
+                <input type="radio" data-testid="payment" />
                 <img
                   src="./assets/bdo_logo.png"
                   className="payment-logo"
@@ -116,9 +122,7 @@ const CheckOut = ({
                   to the official website/ notice of the logistics company.)
                 </p>
 
-                <h4>
-                  Shipping Fee: ${totalPrice.toFixed(2) * (0.3).toFixed(2)}
-                </h4>
+                <h4>Shipping Fee: ${(totalPrice * 0.1).toFixed(2)}</h4>
                 <h4> Total: ${totalPrice.toFixed(2)}</h4>
 
                 <button

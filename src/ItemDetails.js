@@ -8,7 +8,8 @@ const ItemDetails = ({
   currID,
   addItemsToCart,
   setItems,
-  setResult
+  setResult,
+  result
 }) => {
  
 
@@ -93,7 +94,7 @@ const ItemDetails = ({
                   <button
                     data-testid="item-add-button"
                     className="item-add-button"
-                    onClick={() => addItemsToCart(items)}
+                    onClick={() => {addItemsToCart(items)}}
                   >
                     ADD TO SACK
                   </button>

@@ -12,6 +12,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Feature:Anti-wrinkle, QUICK DRY, Compressed, Breathable, Plus Size, Anti-Shrink
       Collar:O-Neck
       Fabric Weight:160 grams
@@ -30,6 +31,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Brand: TEETALK
       Neckline: Crew Neck
       Clothing Material: cotton
@@ -48,6 +50,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Brand: INSPI
       Neckline: Crew Neck
       Pattern: Plain
@@ -66,6 +69,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Brand: No Brand
       Neckline: Crew Neck
       Pattern: Graphic Print
@@ -84,6 +88,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Top Length: Regular
       Country of Origin: China
       Neckline: Round Neck
@@ -102,6 +107,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Color:	Khaki
       Style:	Casual
       Pattern Type:	Letter
@@ -120,6 +126,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Color:	Multicolor
       Style:	Street
       Pattern Type:	Plaid
@@ -138,6 +145,7 @@ const items = [
         Large: "L", 
         xLarge: "XL" 
       },
+      currSize: "",
       desc: `Color:	Black, White, and Pale Colors
       Style:	Casual
       Pattern Type:	Striped, Cartoon

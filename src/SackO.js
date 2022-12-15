@@ -19,18 +19,28 @@ const ProductPage = () => {
   const [scrollToTop, setscrollToTop] = useState(false);
   const [result, setResult] = useState("");
 
-
-
   const addItemsToCart = () => {
     const temp = currID + 1;
-    if (itemsInCart.some((item) => item.id === temp)) {
-      return;
+    if (items[currID].currSize === "" ) {
+      if (itemsInCart.some((item) => item.id === temp)) {
+        return;
+      }
+      const newItems = {
+        ...items[currID],
+        count: 1,
+      };
+      setItems([...itemsInCart, newItems]);
     }
-    const newItems = {
-      ...items[currID],
-      count: 1,
-    };
-    setItems([...itemsInCart, newItems]);
+    setItems((prevState) => {
+      const newState = prevState.map((temp) => {
+        if (temp.id === items[currID].id) {
+          return { ...temp, currSize: result };
+        }
+        return temp;
+      });
+      return newState;
+    });
+    console.log("items", itemsInCart);
   };
 
   const handleItemClick = (id) => {
@@ -64,9 +74,6 @@ const ProductPage = () => {
       behavior: "smooth",
     });
   };
-
-
-
 
   return (
     <>
@@ -142,6 +149,7 @@ const ProductPage = () => {
             addItemsToCart={addItemsToCart}
             setItems={setItems}
             setResult={setResult}
+            result={result}
           />
         </div>
         <div className="items-title">
@@ -199,7 +207,7 @@ const ProductPage = () => {
                   placeholder="Contact Us"
                 ></input>
                 <button className="footer-contact-btn">
-                  <IoIosMail size={35}/>
+                  <IoIosMail size={35} />
                 </button>
               </span>
             </div>
