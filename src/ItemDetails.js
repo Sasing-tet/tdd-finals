@@ -10,14 +10,21 @@ const ItemDetails = ({
   setResult,
 }) => {
   const [imageThumb, setImageThumb] = useState(true);
+  const [active, setActive] = useState("");
 
   const handleClick = (size) => {
     setResult(`${size}`);
+    setActive(size);
   };
+
+  const clickedButtonHandler = (e) => {
+    const { name } = e.target;
+    setActive(name);
+  };
+
   if (!show) {
     return <></>;
   }
-
   return (
     <div className="overlay">
       <div data-testid="item-detail" className="item-detail">
@@ -25,6 +32,7 @@ const ItemDetails = ({
           className="close-button"
           onClick={() => {
             setShowItemDetails(false);
+            setActive("");
           }}
         >
           X
@@ -73,25 +81,41 @@ const ItemDetails = ({
                 <div className="sizes-title">Available Sizes: </div>
                 <div>
                   <button
-                    className="size-buttons"
+                    className={
+                      active === "S"
+                        ? "active-size-button"
+                        : "inactive-size-button"
+                    }
                     onClick={() => handleClick(items[currID].sizeButton.small)}
                   >
                     {items[currID].sizeButton.small}
                   </button>
                   <button
-                    className="size-buttons"
+                    className={
+                      active === "M"
+                        ? "active-size-button"
+                        : "inactive-size-button"
+                    }
                     onClick={() => handleClick(items[currID].sizeButton.medium)}
                   >
                     {items[currID].sizeButton.medium}
                   </button>
                   <button
-                    className="size-buttons"
+                    className={
+                      active === "L"
+                        ? "active-size-button"
+                        : "inactive-size-button"
+                    }
                     onClick={() => handleClick(items[currID].sizeButton.Large)}
                   >
                     {items[currID].sizeButton.Large}
                   </button>
                   <button
-                    className="size-buttons"
+                    className={
+                      active === "XL"
+                        ? "active-size-button"
+                        : "inactive-size-button"
+                    }
                     onClick={() => handleClick(items[currID].sizeButton.xLarge)}
                   >
                     {items[currID].sizeButton.xLarge}

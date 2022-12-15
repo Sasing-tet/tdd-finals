@@ -29,8 +29,6 @@ function ShoppingCart({
   };
   const checkout = () => {
     setshowCheckout(true);
-    // alert(`Checkout - Subtotal: $ ${totalPrice.toFixed(2)}`);
-    // setItems([]);
   };
 
   return (
@@ -66,10 +64,11 @@ function ShoppingCart({
                 <div className="prod-title">
                   <h3>{item.productName}</h3>
                 </div>
-                <div className="product-price">
-                  {item.price * item.count}$
+                <div className="product-price">{item.price * item.count}$</div>
+                <div className="size">
+                  Size:{" "}
+                  {item.currSize === "" ? "(default size) M" : item.currSize}
                 </div>
-                <div className="size">Size: {item.currSize === "" ? "(default size) M" : item.currSize}</div>
               </div>
               <div className="select-and-delete">
                 <select

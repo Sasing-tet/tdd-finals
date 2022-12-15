@@ -63,8 +63,23 @@
   .sizes-title {
     padding-top: 15px;
   }
-  .size-buttons {
+  .active-size-button {
+    background-color: black;
+    color: white;
+    width: 70px;
+    padding: 10px 20px;
+    margin: 10px 6px;
+    border-radius: 25px;
+    border: 2px solid rgb(104, 104, 104);
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(213, 213, 213);
+      transition: 0.5s;
+    }
+  }
+  .inactive-size-button {
     background-color: transparent;
+    color: black;
     width: 70px;
     padding: 10px 20px;
     margin: 10px 6px;

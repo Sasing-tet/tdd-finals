@@ -14,7 +14,6 @@ const CheckOut = ({
   const [name, setName] = useState("");
   const [userAddress, setuserAddress] = useState("");
   const [radio, setRadio] = useState("");
-  F;
 
   const showAlert = (show = false, type = "", message = "") => {
     setAlertMsg({ show, type, message });
@@ -33,19 +32,24 @@ const CheckOut = ({
     event.preventDefault();
     if (name.trim().length === 0 || userAddress.trim().length === 0) {
       showAlert(true, "danger", "Invalid. Input Field is empty.");
+    } else if (radio === "") {
+      showAlert(true, "danger", "Invalid. Please choose Payment method.");
     } else if (totalPrice === 0) {
       showAlert(
         true,
         "danger",
-        "Invalid. Items Already Checkedout, Sack is empty."
+        "Invalid. Items Already Checked out, Sack is empty."
       );
     } else {
       showAlert(
         true,
         "success",
-        `Items Checkout successful. Subtotal $${totalPrice.toFixed(2)}`
+        `Items Checked out successful. Subtotal $${totalPrice.toFixed(2)}`
       );
       setItems([]);
+      setName("");
+      setuserAddress("");
+      setRadio("");
     }
   };
 
@@ -114,6 +118,7 @@ const CheckOut = ({
                     type="radio"
                     value="paypal"
                     data-testid="payment"
+                    defaultChecked={true}
                     checked={radio === "paypal"}
                     onChange={(e) => {
                       setRadio(e.target.value);
