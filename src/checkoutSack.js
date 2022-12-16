@@ -20,7 +20,7 @@ const CheckOut = ({
   };
 
   const handleChange = (event) => {
-    const result = event.target.value.replace(/[^a-z]/gi, "");
+    const result = event.target.value.replace(/[^a-z\s]/gi, "");
     setName(result);
   };
 
