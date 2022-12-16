@@ -192,12 +192,13 @@ h4.prodTitle {
   background-color: transparent;
   border: none;
   transition: 0.5s;
+  &:hover {
+    color: rgb(0, 20, 170);
+    cursor: pointer;
+    transition: 0.5s;
+    }
 }
-.sack-button:hover {
-	color: rgb(0, 20, 170);
-	cursor: pointer;
-	transition: 0.5s;
-  }
+
 .items-map {
   display: grid;
   grid-template-columns: 350px 350px 350px 350px;
@@ -251,7 +252,13 @@ h4.prodTitle {
   color: white;
   background-color: rgb(46, 46, 46);
   border: none;
+  &:hover {
+    background-color: rgb(69, 69, 69);
+    cursor: pointer;
+  }
 }
+
+
 .footer {
   color: white;
   background-color: black;
