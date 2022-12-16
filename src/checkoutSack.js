@@ -44,7 +44,7 @@ const CheckOut = ({
       showAlert(
         true,
         "success",
-        `Items Checked out successful. Subtotal $${totalPrice.toFixed(2)}`
+        `Items Checked out successful. Subtotal $${totalPrice + + total}`
       );
       setItems([]);
       setName("");
@@ -52,6 +52,7 @@ const CheckOut = ({
       setRadio("");
     }
   };
+  const total = (totalPrice * 0.1).toFixed(2);
 
   if (!show) {
     return;
@@ -176,8 +177,8 @@ const CheckOut = ({
                     company.)
                   </p>
 
-                  <h4>Shipping Fee: ${(totalPrice * 0.1).toFixed(2)}</h4>
-                  <h4> Total: ${totalPrice.toFixed(2)}</h4>
+                  <h4>Shipping Fee: ${total}</h4>
+                  <h4> Total: ${totalPrice + + total}</h4>
 
                   <button
                     className="confirm-checkout-btn"
